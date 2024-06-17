@@ -10,7 +10,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "appwrite": "^15.0.0",
     "nuxt": "^3.12.2",
     "radix-vue": "^1.8.3",
     "tailwind-variants": "^0.2.1",
