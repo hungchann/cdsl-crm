@@ -1,4 +1,61 @@
 # This "input" configures a global authorization rule to enable public access to
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: private, provider: userPools }
+} # FOR TESTING ONLY!
+type Customer @model 
+  @auth(rules: [
+    { allow: owner }
+  ]) {
+  id: ID!
+  name: String!
+  email: String!
+  phone: String
+  address: String
+  company: String
+  industry: String
+  contacts: [Contact] @connection(keyName: "byCustomer", fields: ["id"])
+  interactions: [Interaction] @connection(keyName: "byCustomer", fields: ["id"])
+  opportunities: [Opportunity] @connection(keyName: "byCustomer", fields: ["id"])
+}
 
+type Contact @model @key(name: "byCustomer", fields: ["customerID"]) {
+  id: ID!
+  name: String!
+  email: String
+  phone: String
+  position: String
+  department: String
+  customerID: ID!
+}
+
+type Interaction @model @key(name: "byCustomer", fields: ["customerID"]) {
+  id: ID!
+  date: AWSDate
+  type: String
+  notes: String
+  customerID: ID!
+}
+
+type Opportunity @model @key(name: "byCustomer", fields: ["customerID"]) {
+  id: ID!
+  name: String
+  amount: Float
+  closeDate: AWSDate
+  customerID: ID!
+}
+
+type Sales @model {
+  id: ID!
+  opportunityID: ID!
+  amount: Float
+  date: AWSDate
+  salespersonID: ID!
+}
+
+type Salesperson @model {
+  id: ID!
+  name: String
+  email: String
+  role: String
+}
