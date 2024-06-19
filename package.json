@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "aws-amplify": "^6.3.6",
+    "aws-amplify": "^6.3.7",
     "nuxt": "^3.12.2",
     "radix-vue": "^1.8.3",
     "tailwind-variants": "^0.2.1",
