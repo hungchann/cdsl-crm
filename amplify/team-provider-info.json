@@ -10,11 +10,6 @@
       "StackName": "amplify-cdslcrm-dev-774d9",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:590183920654:stack/amplify-cdslcrm-dev-774d9/5a527e30-2e03-11ef-8138-0204db794199",
       "AmplifyAppId": "d9mp9f5agj5dh"
-    },
-    "categories": {
-      "api": {
-        "cdslcrm": {}
-      }
     }
   }
 }
