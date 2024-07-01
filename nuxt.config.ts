@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@vueuse/nuxt", "nuxt-icon"],
 
+  srcDir: "src",
+
   tailwindcss: {
     exposeConfig: true,
   },
